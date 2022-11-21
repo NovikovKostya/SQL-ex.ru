@@ -1,0 +1,73 @@
+1. 
+SELECT model, speed, hd 
+FROM pc
+WHERE price < 500
+
+2. 
+SELECT DISTINCT maker
+FROM Product
+WHERE type = 'Printer'
+
+3. 
+SELECT model, ram, screen
+FROM Laptop
+WHERE price > 1000
+
+4. 
+SELECT *
+FROM printer
+WHERE color = 'y'
+
+5. 
+SELECT model, speed, hd
+FROM PC
+WHERE (cd = '12x' OR cd = '24x') AND price < 600
+
+6. 
+SELECT DISTINCT maker, speed
+FROM Laptop, Product
+WHERE Laptop.model = Product.model AND hd >= 10
+
+7. 
+SELECT Product.model, price
+FROM Product, PC
+WHERE Product.model = PC.model AND maker = 'B'
+UNION
+SELECT Product.model, price
+FROM Product, Laptop
+WHERE Product.model = Laptop.model AND maker = 'B'
+UNION
+SELECT Product.model, price
+FROM Product, Printer
+WHERE Product.model = Printer.model AND maker = 'B'
+
+8.
+SELECT maker
+FROM Product
+WHERE type = 'PC'
+EXCEPT
+SELECT maker
+FROM Product
+WHERE type = 'Laptop'
+
+9. 
+SELECT DISTINCT maker
+FROM PC, Product
+WHERE PC.model = Product.model AND speed >= 450
+
+10. 
+SELECT model, price
+FROM Printer
+WHERE price = (SELECT MAX(price)
+FROM Printer)
+
+11. 
+SELECT AVG(speed) 
+FROM PC
+
+12. 
+SELECT AVG(speed)
+FROM Laptop
+WHERE price > 1000
+
+13.
